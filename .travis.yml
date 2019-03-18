@@ -29,7 +29,6 @@ deploy:
   verbose: true
   skip_cleanup: true
   keep-history: true
-  api-key: ${GH_TOKEN}
   local-dir: _build
   file:
   - _build/sponsdoc.pdf
