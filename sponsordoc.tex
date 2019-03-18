@@ -1,0 +1,147 @@
+
+\documentclass[a4paper,12pt]{article}
+
+% packeges
+\usepackage[a4paper]{geometry}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{array}
+\usepackage{longtable}
+\usepackage{multirow}
+\usepackage{setspace}
+\usepackage{graphicx}
+\usepackage{graphics}
+\usepackage{pdflscape}
+\usepackage{pdfpages}
+\usepackage{url}
+\usepackage{hyperref}
+\usepackage{color}
+\input{rgb.tex}
+
+%
+\hypersetup{
+    %hyperindex=true,
+    %hyperfigures=true,
+    %pagebackref=true,
+    %backref,
+    colorlinks=true,
+    linkcolor=black,
+    anchorcolor=black,
+    citecolor=black,
+    filecolor=black,
+    menucolor=black,
+    pagecolor=black,
+    urlcolor=black,
+    %bookmarksnumbered,
+    %pdfborder=0 0 0,'
+    pdftoolbar=false,
+    pdfmenubar=false,
+    %bookmarks=false,
+    pdfproducer={LOADays Document Creator},
+    pdfcreator={VanTosh bvba},
+    pdfauthor={Toshaan Bharvani},
+    pdftitle={LOADays 2019 Sponsor Prospectus}
+    pdfsubject={LOADays 2019 Sponsor Prospectus},
+}
+
+% page layout
+\geometry{top=25mm}
+\geometry{bottom=25mm}
+\geometry{left=10mm}
+\geometry{right=10mm}
+\geometry{head=15mm}
+\geometry{foot=15mm}
+
+% line spacing
+%\renewcommand{\baselinestretch}{2}
+%\doublespacing
+
+% set all sections naming
+\renewcommand{\partname}{}
+\renewcommand{\thepart}{\Alph{part}}
+%\renewcommand{\chaptername}{}
+%\renewcommand{\thechapter}{\Roman{chapter}}
+%\renewcommand{\chaptermark}[1]{\markboth{\thechapter.\ #1}{}}
+\makeatletter
+\def\thinhrulefill{\leavevmode \leaders \hrule height 0.25ex \hfill \kern \z@}
+\def\thickhrulefill{\leavevmode \leaders \hrule height 0.50ex \hfill \kern \z@}
+\def\@makechapterhead#1{%
+   {\parindent\z@ \centering \reset@font%
+    \par\nobreak%
+    \thinhrulefill%
+    \par\nobreak%
+    {\Huge \bfseries \thechapter. #1\par\nobreak}%
+    \par\nobreak%
+    \thinhrulefill%
+}}
+\def\@makeschapterhead#1{%
+   {\parindent\z@ \centering \reset@font%
+    \par\nobreak%
+    \thickhrulefill%
+    \par\nobreak%
+    {\Huge \bfseries #1\par\nobreak}%
+    \par\nobreak%
+    \thickhrulefill%
+    \par
+}}
+\renewcommand{\thesection}{\arabic{section}}
+\renewcommand{\sectionmark}[1]{\markright{\thesection.\ #1}}
+%\renewcommand{\sectionmark}[1]{\markright{#1}}
+\setcounter{secnumdepth}{3}
+\setlength{\abovecaptionskip}{0.5cm}
+\setlength{\belowcaptionskip}{0.5cm}
+%\renewcommand{\thetable}{\arabic{chapter}.\arabic{table}}
+%\renewcommand{\thefigure}{\arabic{chapter}.\arabic{figure}}
+
+% document starts here
+\begin{document}
+
+% front page
+\makeatletter
+\renewcommand{\maketitle}{
+    \begin{titlepage}
+        %
+        \thispagestyle{empty}
+        \pagenumbering{empty}
+        %
+        \begin{center}
+            \hrule\hrule\hrule\hrule\hrule\hrule
+            \vspace{2.5cm}
+            \Large{\underline{\textbf{LOADays 2019 Sponsor Prospectus}}}\\
+        \end{center}
+        \begin{figure}[h!]
+            \centering
+            \includegraphics[width=9cm]{images/loadays.png}
+        \end{figure}
+        \begin{center}
+            \vspace{3.5cm}
+            \scriptsize{Version 201901 - 17/03/2019}
+            \hrule\hrule\hrule\hrule\hrule\hrule
+        \end{center}
+        %
+    \end{titlepage}
+}
+\maketitle
+
+% contents
+\pagestyle{fancy}
+\setcounter{page}{1}
+\pagenumbering{arabic}
+\fancyhead{}
+\fancyhead[C]{}
+\fancyhead[L]{LOADays 2019}
+\fancyhead[R]{Sponsor Prospectus}
+\fancyfoot{}
+\fancyfoot[C]{\bfseries\thepage}
+
+%
+\def\confdates{4th and 5th May 2019}
+
+%
+\input{content.tex}
+
+
+\end{document}

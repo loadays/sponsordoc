@@ -1,0 +1,37 @@
+#!.travis.yml
+branches:
+  only:
+    - master
+
+dist: bionic
+sudo: require
+language: bash
+
+env:
+  global:
+    - USER="loadays"
+    - EMAIL="info@loadays.org"
+    - REPO="loadays.org"
+    - GH_REPO="github.com/${USER}/${REPO}.git"
+
+install:
+  - "sudo apt-get -qq update"
+  - "sudo apt-get install --no-install-recommends texlive-fonts-recommended texlive-latex-extra texlive-fonts-extra texlive-latex-recommended dvipng latex-beamer"
+
+script:
+  - export DEBIAN_FRONTEND=noninteractive
+  - mkdir _build
+  - pdflatex -output-directory=_build -interaction=nonstopmode -file-line-error -no-shell-escape sponsordoc.tex
+  - pdflatex -output-directory=_build -interaction=nonstopmode -file-line-error -no-shell-escape sponsordoc.tex
+
+deploy:
+  provider: releases
+  verbose: true
+  skip_cleanup: true
+  keep-history: true
+  api-key: ${GH_TOKEN}
+  local-dir: _build
+  file:
+  - _build/sponsdoc.pdf
+  on:
+branch: master
