@@ -3,7 +3,7 @@ jobs:
   build:
     docker:
       - image: blang/latex
-    working_directory: ~/cfgmgmtcamp
+    working_directory: ~/loadays
     steps:
       - checkout
       - run:
@@ -13,16 +13,9 @@ jobs:
           root: .
           paths:
             - sponsordoc.pdf
-      - persist_to_workspace:
-          root: .
-          paths:
-            - sponsordoc-presentation.pdf
       - store_artifacts:
           path: /tmp/sponsordoc.pdf
           destination: sponsordoc.pdf
-      - store_artifacts:
-          path: /tmp/sponsordoc-presentation.pdf
-          destination: sponsordoc-presentation.pdf
  
   publish-github-release:
     docker:
