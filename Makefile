@@ -6,7 +6,7 @@ RELTAG:=$(shell git describe --tags --long --always --dirty='-*' --match '[0-9]*
 
 .PHONY: gitinfo
 gitinfo:
-	@git log -1 --date=short --pretty=format:"\usepackage[shash={%h},lhash={%H},authname={%an},authemail={%ae},authsdate={%ad},authidate={%ai},authudate={%a   t},commname={%an},commemail={%ae},commsdate={%ad},commidate={%ai},commudate={%at},refnames={%d},firsttagdescribe="${FIRSTTAG}",reltag="${RELTAG}"]{gitexinfo   }" HEAD > $(TMPDIR)/gitHeadLocal.gin
+	@git log -1 --date=short --pretty=format:"\usepackage[shash={%h},lhash={%H},authname={%an},authemail={%ae},authsdate={%ad},authidate={%ai},authudate={%at},commname={%an},commemail={%ae},commsdate={%ad},commidate={%ai},commudate={%at},refnames={%d},firsttagdescribe="${FIRSTTAG}",reltag="${RELTAG}"]{gitexinfo}" HEAD > $(TMPDIR)/gitHeadLocal.gin
 
 pdf: gitinfo sponsordoc
 
