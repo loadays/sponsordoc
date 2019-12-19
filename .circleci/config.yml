@@ -26,7 +26,8 @@ jobs:
       - run:
           name: "Publish Release on GitHub"
           command: |
-            ghr -t ${GITHUB_TOKEN} -u ${CIRCLE_PROJECT_USERNAME} -r ${CIRCLE_PROJECT_REPONAME} -c ${CIRCLE_SHA1} -delete --debug ${CIRCLE_TAG} ./artifacts/
+            TAG=$(git describe --tags `git rev-list --tags --max-count=1`)
+            ghr -t ${GITHUB_TOKEN} -u ${CIRCLE_PROJECT_USERNAME} -r ${CIRCLE_PROJECT_REPONAME} -c ${CIRCLE_SHA1} -delete --debug ${TAG} ./artifacts/
  
 workflows:
   version: 2
