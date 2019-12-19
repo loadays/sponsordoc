@@ -16,6 +16,7 @@ sponsordoc: sponsordoc.tex
 	@pdflatex -output-directory=$(TMPDIR) -interaction=batchmode -file-line-error -no-shell-escape $< > /dev/null
 	@pdflatex -output-directory=$(TMPDIR) -interaction=batchmode -file-line-error -no-shell-escape $< > /dev/null
 	@cp $(TMPDIR)/sponsordoc.pdf .
+	@echo $(FIRSTTAG) > version
 	@echo "sponsordoc Ready"
 
 .PHONY: clean
